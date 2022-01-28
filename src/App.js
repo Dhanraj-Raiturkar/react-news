@@ -1,23 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import Header from "./Header";
+import News from './News'
+import React,{useState, useEffect, useCallback} from "react";
 
 function App() {
+
+  const [news, setNews] = useState([]);
+
+  const fetchNews = useCallback(async () => {
+    const response = await fetch('https://newsapi.org/v2/top-headlines?sources=google-news-in&apiKey=061a4ff026d44d488358222b08620cca');
+    const data = await response.json();
+    if(response.status===200){
+      setNews(data.articles);
+    }
+    console.log(data.articles);
+  }, []);
+
+
+  useEffect(() => {
+    fetchNews();
+  }, [fetchNews]);
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <News data={news}/>
     </div>
   );
 }
