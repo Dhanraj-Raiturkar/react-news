@@ -1,13 +1,13 @@
 .news {
     /* border: 1px solid black; */
-    margin: 2% 25%;
+    margin: 2% 20%;
     padding: 0px;
     margin-top: 7%;
 }
 
 @media (min-width: 1100px) and (max-width: 1650px){
     .news{
-        margin-top: 8%;
+        margin-top: 7%;
     }
 }
 
