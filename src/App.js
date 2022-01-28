@@ -4,6 +4,18 @@ import React,{useState, useEffect, useCallback} from "react";
 
 function App() {
 
+  // const inshorts= require('inshorts-api');
+
+  // var options = {
+  //   lang: 'language',
+  //   category: 'category',
+  //   numOfResults: 5
+  // }
+   
+  // inshorts.get(options, function(result){
+  //   console.log(result);
+  // });
+
   const [news, setNews] = useState([]);
 
   const fetchNews = useCallback(async () => {
